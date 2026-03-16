@@ -16,24 +16,24 @@ const Details = ({ data, setData }) => {
           </p>
         </div>
 
-        <div className="text-right print:text-center mt-2">
+       <div className="text-right print:text-center mt-2">
 
-          {/* Date Input (hidden in print) */}
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="border p-2 rounded print:hidden"
-          />
+  {/* Date Input (hidden in print) */}
+  <input
+    type="date"
+    value={date}
+    onChange={(e) => setDate(e.target.value)}
+    className="border p-2 rounded print:hidden"
+  />
 
-          {/* Date text (visible in print) */}
-          {date && (
-            <p className="text-sm font-medium print:block">
-              Date: {date}
-            </p>
-          )}
+  {/* Date text (visible only in print) */}
+  {date && (
+    <p className="text-sm font-medium hidden print:block">
+      Date: {date}
+    </p>
+  )}
 
-        </div>
+</div>
       </div>
 
       {/* Invoice Details */}
