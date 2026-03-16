@@ -16,14 +16,14 @@ const Details = ({ data, setData }) => {
           </p>
         </div>
 
-      <div className="text-right print:text-center mt-2 print-hidden">
+      <div className="text-right print:text-center mt-2 ">
 
   {/* Date Input */}
   <input
     type="date"
     value={date}
     onChange={(e) => setDate(e.target.value)}
-    className="border p-2 rounded "
+    className="border p-2 rounded print:hidden"
   />
 
   {/* Date for print */}
