@@ -16,9 +16,9 @@ const Details = ({ data, setData }) => {
           </p>
         </div>
 
-       <div className="text-right print:text-center mt-2">
+      <div className="text-right print:text-center mt-2">
 
-  {/* Date Input (hidden in print) */}
+  {/* Date Input */}
   <input
     type="date"
     value={date}
@@ -26,12 +26,10 @@ const Details = ({ data, setData }) => {
     className="border p-2 rounded print:hidden"
   />
 
-  {/* Date text (visible only in print) */}
-  {date && (
-    <p className="text-sm font-medium hidden print:block">
-      Date: {date}
-    </p>
-  )}
+  {/* Date for print */}
+  <p className="text-sm font-medium hidden print:block">
+    Date: {date || new Date().toLocaleDateString()}
+  </p>
 
 </div>
       </div>
