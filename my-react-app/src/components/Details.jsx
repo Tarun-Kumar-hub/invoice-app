@@ -23,7 +23,7 @@ const Details = ({ data, setData }) => {
     type="date"
     value={date}
     onChange={(e) => setDate(e.target.value)}
-    className="border p-2 rounded print:hidden"
+    className="border p-2 rounded "
   />
 
   {/* Date for print */}
