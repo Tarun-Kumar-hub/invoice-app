@@ -16,7 +16,7 @@ const Details = ({ data, setData }) => {
           </p>
         </div>
 
-      <div className="text-right print:text-center mt-2 ">
+<div className="text-right print:text-center mt-2">
 
   {/* Date Input */}
   <input
@@ -26,9 +26,9 @@ const Details = ({ data, setData }) => {
     className="border p-2 rounded print:hidden"
   />
 
-  {/* Date for print */}
-  <p className="text-sm font-medium hidden print:block">
-    Date: {date }
+  {/* Selected Date */}
+  <p className="text-sm font-medium mt-1">
+    {date && `Date: ${date}`}
   </p>
 
 </div>
