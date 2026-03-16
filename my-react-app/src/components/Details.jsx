@@ -16,7 +16,7 @@ const Details = ({ data, setData }) => {
           </p>
         </div>
 
-      <div className="text-right print:text-center mt-2">
+      <div className="text-right print:text-center mt-2 print-hidden">
 
   {/* Date Input */}
   <input
@@ -28,7 +28,7 @@ const Details = ({ data, setData }) => {
 
   {/* Date for print */}
   <p className="text-sm font-medium hidden print:block">
-    Date: {date || new Date().toLocaleDateString()}
+    Date: {date }
   </p>
 
 </div>
