@@ -48,20 +48,20 @@ const Bill = ({ data, setData }) => {
   );
 
   return (
-    <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <div className="max-w-4xl mx-auto bg-white p-4 rounded-md shadow print:shadow-none">
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap gap-4 items-end mb-6 print:hidden"
+        className="flex flex-wrap gap-3 items-end mb-3 print:hidden"
       >
         <div>
-          <label className="block text-sm font-medium">Juice</label>
+          <label className="block text-xs font-medium">Juice</label>
           <select
             value={juice}
             onChange={(e) => setJuice(e.target.value)}
-            className="border rounded px-3 py-2 w-48"
+            className="border rounded px-2 py-1 text-xs w-44"
           >
-            <option value="">-- Select Juice --</option>
+            <option value="">Select Juice</option>
 
             {juices.map((item, index) => (
               <option key={index} value={item}>
@@ -72,80 +72,76 @@ const Bill = ({ data, setData }) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Price</label>
+          <label className="block text-xs font-medium">Price</label>
           <input
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            placeholder="Price"
-            className="border rounded px-3 py-2 w-32"
+            className="border rounded px-2 py-1 text-xs w-24"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium">Quantity</label>
+          <label className="block text-xs font-medium">Qty</label>
           <input
             type="number"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            placeholder="Qty"
-            className="border rounded px-3 py-2 w-32"
+            className="border rounded px-2 py-1 text-xs w-20"
           />
         </div>
 
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          className="bg-green-600 text-white px-3 py-1 rounded text-xs hover:bg-green-700"
         >
-          Add Item
+          Add
         </button>
       </form>
 
       {/* Table */}
-      <h3 className="text-lg font-semibold mb-3">Invoice Items</h3>
-
       <div className="overflow-x-auto">
-        <table className="w-full border border-black text-sm">
+        <table className="w-full border border-black text-xs">
           <thead className="bg-gray-100 print:bg-white">
             <tr>
-              <th className="border px-3 py-2">S No</th>
-              <th className="border px-3 py-2">Juice Name</th>
-              <th className="border px-3 py-2">Quantity</th>
-              <th className="border px-3 py-2">Price</th>
-              <th className="border px-3 py-2">Total</th>
-              <th className="border px-3 py-2 print:hidden">Action</th>
+              <th className="border px-2 py-1">#</th>
+              <th className="border px-2 py-1">Item</th>
+              <th className="border px-2 py-1">Qty</th>
+              <th className="border px-2 py-1">Price</th>
+              <th className="border px-2 py-1">Total</th>
+              <th className="border px-2 py-1 print:hidden">X</th>
             </tr>
           </thead>
 
           <tbody>
             {data.items.map((item, index) => (
               <tr key={index} className="text-center">
-                <td className="border px-3 py-2">{index + 1}</td>
-                <td className="border px-3 py-2">{item.juice}</td>
-                <td className="border px-3 py-2">{item.quantity}</td>
-                <td className="border px-3 py-2">{item.price}</td>
-                <td className="border px-3 py-2">{item.total}</td>
+                <td className="border px-2 py-1">{index + 1}</td>
+                <td className="border px-2 py-1">{item.juice}</td>
+                <td className="border px-2 py-1">{item.quantity}</td>
+                <td className="border px-2 py-1">{item.price}</td>
+                <td className="border px-2 py-1">{item.total}</td>
 
-                <td className="border px-3 py-2 print:hidden">
+                <td className="border px-2 py-1 print:hidden">
                   <button
                     type="button"
                     onClick={() => deleteRow(index)}
-                    className="bg-red-500 text-white px-1 py-1 rounded hover:bg-red-600"
+                    className="text-red-600"
                   >
-                    🗑️
+                    ✕
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
 
-          <tfoot className="bg-gray-100 font-semibold">
+          <tfoot className="font-semibold">
             <tr>
-              <td colSpan="4" className="border px-3 py-2 text-right">
+              <td colSpan="4" className="border px-2 py-1 text-right">
                 Grand Total
               </td>
 
-              <td className="border px-3 py-2 text-center">{grandTotal}</td>
+              <td className="border px-2 py-1 text-center">{grandTotal}</td>
 
               <td className="border print:hidden"></td>
             </tr>
@@ -154,9 +150,9 @@ const Bill = ({ data, setData }) => {
       </div>
 
       {/* Signature */}
-      <div className="mt-10 text-right">
-        <p className="font-medium">Signature</p>
-        <div className="border-b w-48 ml-auto mt-6"></div>
+      <div className="mt-6 text-right">
+        <p className="text-xs font-medium">Signature</p>
+        <div className="border-b w-40 ml-auto mt-3"></div>
       </div>
     </div>
   );

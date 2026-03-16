@@ -1,1 +1,24 @@
 @import "tailwindcss";
+@media print {
+  /* Remove browser margins */
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+
+  body {
+    background: white;
+  }
+
+  /* Make invoice centered and full width */
+  .print-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  /* Hide buttons while printing */
+  button {
+    display: none;
+  }
+}

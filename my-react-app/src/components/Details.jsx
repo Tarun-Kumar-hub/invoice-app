@@ -1,79 +1,59 @@
-import React, { useState } from "react";
-
 const Details = ({ data, setData }) => {
-  const [date, setDate] = useState("");
-
   return (
-    <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md mb-6">
-      
+    <div className="max-w-4xl mx-auto bg-white p-4 rounded-md shadow mb-3 print:shadow-none print:p-2">
       {/* Company Header */}
-      <div className="border-b pb-4 mb-4 flex justify-between items-center print:block print:text-center">
-        
+      <div className="border-b pb-2 mb-3 flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-green-700">Parveen & Co.</h1>
-          <p className="text-sm text-black">
+          <h1 className="text-xl font-bold text-green-700">Parveen & Co.</h1>
+
+          <p className="text-xs text-gray-700">
             Phone: +91 90342 51034, +91 94668 7172
           </p>
         </div>
 
-<div className="text-right print:text-center mt-2">
+        <div>
+          {/* Date Picker */}
+          <input
+            type="date"
+            value={data.date}
+            onChange={(e) => setData({ ...data, date: e.target.value })}
+            className="border border-gray-300 px-2 py-1 rounded text-xs print:hidden"
+          />
 
-  {/* Date Input */}
-  <input
-    type="date"
-    value={date}
-    onChange={(e) => setDate(e.target.value)}
-    className="border p-2 rounded print:hidden"
-  />
-
-  {/* Selected Date */}
-  <p className="text-sm font-medium mt-1">
-    {date && `Date: ${date}`}
-  </p>
-
-</div>
+          {/* Date for print */}
+          <p className="hidden print:block text-xs">Date: {data.date}</p>
+        </div>
       </div>
 
       {/* Invoice Details */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 print:grid-cols-2">
-        
-        {/* Invoice No */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs print:grid-cols-2">
+        {/* Invoice Number */}
         <div className="flex items-center gap-2">
-          <label className="text-sm font-semibold whitespace-nowrap">
-            Invoice No:
-          </label>
+          <label className="font-semibold whitespace-nowrap">Invoice No:</label>
 
           <input
             type="number"
             value={data.invoiceNo}
-            onChange={(e) =>
-              setData({ ...data, invoiceNo: e.target.value })
-            }
-            className="w-full border rounded px-2 py-1 print:border-none print:outline-none print:bg-transparent"
+            onChange={(e) => setData({ ...data, invoiceNo: e.target.value })}
+            className="border border-gray-300 rounded px-2 py-1 w-full print:border-none print:bg-transparent"
           />
         </div>
 
         {/* Customer Name */}
         <div className="flex items-center gap-2">
-          <label className="text-sm font-semibold whitespace-nowrap">
-            Bill To:
-          </label>
+          <label className="font-semibold whitespace-nowrap">Bill To:</label>
 
           <input
             type="text"
             value={data.customerName}
-            onChange={(e) =>
-              setData({ ...data, customerName: e.target.value })
-            }
-            className="w-full border rounded px-2 py-1 print:border-none print:outline-none print:bg-transparent"
+            onChange={(e) => setData({ ...data, customerName: e.target.value })}
+            className="border border-gray-300 rounded px-2 py-1 w-full print:border-none print:bg-transparent"
           />
         </div>
 
         {/* Phone */}
         <div className="flex items-center gap-2">
-          <label className="text-sm font-semibold whitespace-nowrap">
-            Phone:
-          </label>
+          <label className="font-semibold whitespace-nowrap">Phone:</label>
 
           <input
             type="text"
@@ -84,10 +64,9 @@ const Details = ({ data, setData }) => {
                 setData({ ...data, customerNo: value });
               }
             }}
-            className="w-full border rounded px-2 py-1 print:border-none print:outline-none print:bg-transparent"
+            className="border border-gray-300 rounded px-2 py-1 w-full print:border-none print:bg-transparent"
           />
         </div>
-
       </div>
     </div>
   );

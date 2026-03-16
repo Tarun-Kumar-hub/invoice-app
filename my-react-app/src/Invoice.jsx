@@ -15,17 +15,21 @@ const Invoice = () => {
     invoiceNo: "",
     customerName: "",
     customerNo: "",
+    date: "",
     items: [],
   });
 
   return (
-    <div>
-      <button
-        onClick={handlePrint}
-        className="mb-4 px-4 py-2 bg-green-600 text-white rounded print:hidden"
-      >
-        Print Invoice
-      </button>
+    <div className="min-h-screen bg-gray-100 py-10">
+      {/* Print Button */}
+      <div className="max-w-4xl mx-auto mb-4 flex justify-end print:hidden">
+        <button
+          onClick={handlePrint}
+          className="px-5 py-2 bg-green-600 text-white rounded-md shadow hover:bg-green-700 transition"
+        >
+          Print Invoice
+        </button>
+      </div>
 
       {/* Editable UI */}
       <div className="print:hidden">
@@ -33,16 +37,13 @@ const Invoice = () => {
         <Bill data={invoiceData} setData={setInvoiceData} />
       </div>
 
-      {/* Printable area */}
+      {/* Printable Invoice */}
       <div
         ref={printingRef}
-        className="hidden print:block print-container scale-90 origin-top"
+        className="hidden print:block max-w-4xl mx-auto bg-white p-6"
       >
-        {/* Copy 1 */}
-        <div className="invoice-copy">
-          <Details data={invoiceData} setData={setInvoiceData} />
-          <Bill data={invoiceData} setData={setInvoiceData} />
-        </div>
+        <Details data={invoiceData} setData={setInvoiceData} />
+        <Bill data={invoiceData} setData={setInvoiceData} />
       </div>
     </div>
   );
