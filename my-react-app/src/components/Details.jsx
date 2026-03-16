@@ -2,6 +2,7 @@ import React from "react";
 
 const Details = ({ data, setData }) => {
   const currentDate = new Date().toLocaleDateString();
+            const [date, setDate] = useState("");
 
   return (
     <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md mb-6">
@@ -16,7 +17,15 @@ const Details = ({ data, setData }) => {
         </div>
 
         <div className="text-right print:text-center mt-2">
-          <p className="text-sm font-medium">Date: {currentDate}</p>
+
+      <input 
+        type="date"
+        value={date}
+        onChange={handleChange}
+        className="border p-2 rounded print:hidden"
+      />
+
+      <p className="text-sm font-medium">Selected Date: {date}</p>
         </div>
       </div>
 
