@@ -2,10 +2,10 @@ import React, { useState } from "react";
 
 const Bill = ({ data, setData }) => {
   const juices = [
-    "Mango Licith[mix bundle]",
-    "Orange Juice",
-    "Apple Juice",
-    "Mixed Fruit",
+    "Mango Licith Pineapple[mix bundle]",
+    "Mango",
+    "Licith ",
+    "Pinapple",
   ];
 
   const [juice, setJuice] = useState("");
