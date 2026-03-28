@@ -6,6 +6,9 @@ const Bill = ({ data, setData }) => {
     "Mango",
     "Licith ",
     "Pinapple",
+    "Spout Pouch licith",
+    
+    "Spout Pouch Mango",
   ];
 
   const [juice, setJuice] = useState("");
