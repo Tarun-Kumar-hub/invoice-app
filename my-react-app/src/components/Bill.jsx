@@ -7,7 +7,7 @@ const Bill = ({ data, setData }) => {
     "Licith ",
     "Pinapple",
     "Spout Pouch licith",
-    
+    "Strawberry",
     "Spout Pouch Mango",
   ];
 
